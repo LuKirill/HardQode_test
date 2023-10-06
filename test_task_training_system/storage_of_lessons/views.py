@@ -1,5 +1,11 @@
-from django.http import HttpResponse
+from rest_framework import viewsets
+from .models import Product, Lesson
+from .serializers import ProductSerializer, LessonSerializer
 
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
 
-def index(request):
-    return HttpResponse("Тестовое задание от Hard_Qode.")
+class LessonViewSet(viewsets.ModelViewSet):
+    queryset = Lesson.objects.all()
+    serializer_class = LessonSerializer
