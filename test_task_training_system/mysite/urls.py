@@ -17,11 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from storage_of_lessons.views import ProductViewSet, LessonViewSet
+from storage_of_lessons.views import ProductViewSet, LessonViewSet, LessonAccessSet
 
 router = routers.DefaultRouter()
 router.register(r'products', ProductViewSet)
 router.register(r'lessons', LessonViewSet)
+router.register(r'lesson-access', LessonAccessSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
